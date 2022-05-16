@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+.header{
+    background-color: steelblue;
+    color: #fff;
+    padding: 20px;
+    border: skyblue 1px solid;
+}
+
+
+.header h1{
+    display:flex;
+    align-items: center;
+    justify-content: center ;
+}
+.header ul{
+    list-style: none;
+    text-decoration: none;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+a{
+    text-decoration: none;
+    color:#9FE2BF;
+}
+
+a:visited{
+    list-style: none;
+    text-decoration: none;
+}
+a:hover{
+    color:yellow;
+}
+
+.header li{
+    padding: 20px;
+    text-decoration: none;
+     
+}
