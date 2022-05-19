@@ -1,0 +1,54 @@
+
+
+/* CSS */
+button{
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 5px;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  
+  touch-action: manipulation;
+}
+
+button:hover,
+button:focus {
+  background-color: #F082AC;
+}
+button:active{
+    transform: scale(0.90);
+}
+
+
+li:first-child img{
+    height:auto;
+    width:73px;
+
+}
+li:nth-child(4) img{
+    height:auto;
+    width:90px;
+
+}
+li:last-child img{
+    height:auto;
+    width:170px;
+
+}

@@ -13,9 +13,6 @@ function Navigation() {
                 <li>
                     <Link to = "/Shop">Shop</Link>
                 </li>
-                <li>
-                    <Link to = "/Cart">Cart</Link>
-                </li>
             </ul>    
         </nav>
     </header>
