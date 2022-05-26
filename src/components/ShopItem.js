@@ -75,7 +75,7 @@ function ShopItem({ItemProps, addFunc, reduceFunc}) {
           
         }
         )
-      console.log("Cart Quantity: " + ItemProps.Cart)
+      
       // if (ItemProps.Cart === 0 && ItemInCart)
       // {
         
@@ -91,14 +91,12 @@ function ShopItem({ItemProps, addFunc, reduceFunc}) {
   }
   
   return (
-    <li>
+    <li className = {classes.ShopItemLi}>
       <h3>{ItemProps.title}</h3>
       <img src = {ItemProps.image}/>
       <div>
         <h4>&#8369;{ItemProps.price} each</h4>
-        <h4>Qty: {ItemProps.quantity}</h4>
-        <h5>Inside Cart: {ItemProps.Cart}</h5>
-        <h5>Total Price {ItemProps.totalPrice}</h5>
+        <h4>Qty available: {ItemProps.quantity}</h4>
         <button onClick={addItemToCart}>+</button>
         <button onClick={removeItemFromCart}>-</button>
       </div>

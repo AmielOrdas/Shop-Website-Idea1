@@ -2,6 +2,7 @@ import React from 'react'
 import classes from "./Home.module.css"
 import HtmlCssJSLogo1 from "../images/HtmlCSSJS.jpeg"
 import InformationList from '../components/InformationList'
+import Footer from '../components/Footer'
 function Home() {
   const Information = [
     {
@@ -29,21 +30,19 @@ function Home() {
     }, 
 
   ]
+  
 
-  
-  
-  
-  
-  
   return (
     <body className = {classes.body}>
-
         <main className = {classes.main}>
           <InformationList InformationProps = {Information}/>
         </main>
-        <footer className = {classes.footer}>Footer</footer>
+        <footer className = {classes.footer}>
+          <Footer/>
+        </footer>
     </body>
-  )
+    )
+    
 }
 
 export default Home

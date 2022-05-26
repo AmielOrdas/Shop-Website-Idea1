@@ -4,14 +4,15 @@ import {createContext, useState} from 'react'
 //This is the context object that we need to export outside to interact with components outside the file
 const CartItems = createContext({
     ItemsInCart: [], //This stores the items that are inside the cart 
-    totalItemsInCart:  0 //This is the counter that counts the number of items inside the cart
+    totalItemsInCart:  0, //This is the counter that counts the number of items inside the cart
+    // totlPrice: 0
 })
 
 
 
 export function CartItemsProvider(props){
     const [userCartItems, setUserCartItems] =  useState([]) //This is the state that tracks the user's cart items
-    
+    // const [usertotalPrice, setTotalPrice] = useState(0)
 
     //This is an object that is possible because of createContext in line 5. This object is also the basis of the changes that will happen because this will be dynamic and it will be changed through states
     const context = {
@@ -21,11 +22,13 @@ export function CartItemsProvider(props){
         We can see that the userCartItems is an empty array and the ItemsInCart is also an empty array. This is why both of these are compatible.
         */
         ItemsInCart: userCartItems,  
-        
+
+        // overAllTotalPrice: usertotalPrice,
 
         /*
-        This is the property that tracks the size of the array userCartItems. This way, we can show the number of items inside the cart and we can put it in the navigation bar
+        This is the property that tracks the size of the array userCartItems. We can use this to determine if there are items in the cart
         */
+       NumberOfItemsInCart: userCartItems.length,
         
         updateCart: updateCartItems, //This is the property of the object context that contains the updateCartItems function. 
         
@@ -53,9 +56,7 @@ export function CartItemsProvider(props){
         setUserCartItems(prevUserCartItems => 
         {
             //Using the concat method of array, this will add the new Items in the previous state and it will render with a new state that includes the newly removed/added items
-            console.log("Total Price: "+ Items.totalPrice)
-            console.log("Title: " + Items.title)
-            console.log("Total Cart: "+ Items.Cart)
+            
             return prevUserCartItems.concat(Items)
         })
     }
@@ -63,10 +64,10 @@ export function CartItemsProvider(props){
     {
         setUserCartItems(prevUserCartItems =>
             {
-                console.log("Total Cart1: " + Items.Cart)
-                console.log("Total Price1: " + Items.totalPrice)
-                return prevUserCartItems.map((Item) => Item.id === Items.id ? {...Item, Cart: Item.Cart + 1, totalPrice: Items.price + Items.price * Item.Cart} : Item)
-            })
+                
+                return prevUserCartItems.map((Item) => Item.id === Items.id ? {...Item, Cart: Item.Cart + 1, totalPrice: Items.price + Items.price * Item.Cart} : Item) 
+            })  //We check if the passed Items.id property is equal to Item.id. If it is, we put everything the same by "...Item" except Cart and totalPrice. We change it by doing the calculation. If the Item.id is not equal then we just remain everything to that CartItem through "Item"
+                //Remember  that this loops through each item in the cart
     }
     /*
     This is the function the remove Items inside the cart. This will be activated when the cart Items hit 0 in number.
@@ -83,8 +84,6 @@ export function CartItemsProvider(props){
     {
         setUserCartItems(prevUserCartItems =>
         {
-             
-            console.log("Removed!")
             //Using the filter method of array, this will return a new array that excludes the Item that is removed because the cart item hits 0.
             return prevUserCartItems.filter(Item => Item.id !== ItemId)
         })
@@ -93,6 +92,10 @@ export function CartItemsProvider(props){
     {
         return userCartItems.some(Item => Item.id === ItemId) //This returns a true or false when the Item is present
     }
+    // function returnTotalPrice(Items)
+    // {
+    //     setTotalPrice(() => )
+    // }
     /*
     This is how we distribute these changes to the components which are the navigation bar,the ShopItem, the cart page. This is becasue when the user presses + or - buttons.
     The cart in the navigation bar should increase or decrease based on the clicks of the user. The cart page should also update based on the add or subtraction of items of the user

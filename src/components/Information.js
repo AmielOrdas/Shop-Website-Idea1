@@ -1,10 +1,12 @@
 import React from 'react'
 import classes from "./Information.module.css"
+
+
 function Information({InfoProps}) {
   return (
     <li className = {classes.InformationList}>
         <h2>{InfoProps.header}</h2>
-        <img src={InfoProps.image} alt="React"/>
+        <img src={InfoProps.image} alt ="none"/>
         <p>{InfoProps.text}</p>
     </li>
   )

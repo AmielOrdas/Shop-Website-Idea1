@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import classes from "./Shop.module.css"
 import ShopList from '../components/ShopList'
 import Coke from "../images/coke.png"
@@ -7,8 +7,9 @@ import Sprite from "../images/sprite.png"
 import Bags from "../images/Bag.jpg"
 import Water from "../images/Nature's spring.jpg"
 import Eggs from "../images/Eggs carton.jpg"
-import Cart from "../components/UI/Cart1"
-
+import CartItems from "../context/CartItems"
+import CartList from "../components/UI/CartList"
+import Footer from '../components/Footer'
 function Shop() {
   const [Items, setItems] = useState([
     {
@@ -84,6 +85,7 @@ function Shop() {
       setItems(Items.map((Item) => Item.id === id ? {...Item, quantity: Item.quantity-1, Cart: cart + 1, totalPrice: Item.Cart * Item.price} : Item)) /* If the Item's id is equal to the id then we retain everything using "...Item" but quantity will be +1 and cart will be -1. If false, then we retain everything by using ":Item" */;
     }
   }
+  const CartItemsContext = useContext(CartItems);
   
 
   return (
@@ -94,10 +96,12 @@ function Shop() {
       </main>
       <aside className = {classes.aside}>
         <h1>Cart Section</h1>
-        <Cart/>
+        <CartList ItemsInCart ={CartItemsContext.ItemsInCart} />
+        {CartItemsContext.NumberOfItemsInCart !== 0 ? <button>Checkout</button> : <h1></h1>}
+        
       </aside>
       <footer className = {classes.footer}>
-        
+      <Footer/>
       </footer>
       
     </body>

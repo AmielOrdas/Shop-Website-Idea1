@@ -11,7 +11,7 @@ function Navigation() {
                     <Link to = "/">Home</Link>
                 </li>
                 <li>
-                    <Link to = "/Shop">Shop</Link>
+                    <Link to = "/XD">Shop</Link>
                 </li>
             </ul>    
         </nav>

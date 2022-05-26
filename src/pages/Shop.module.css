@@ -20,7 +20,7 @@
     grid-template-areas:
     "content sidebar"
     "footer footer";
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 1fr 10fr;
     grid-template-rows: 10fr 1fr;
 }
 
@@ -40,11 +40,16 @@ footer{
     grid-area: footer;
 }
 
-aside{
+.aside{
     grid-area: sidebar;
     background-color: #e899dc;
     background-image: linear-gradient(315deg, #e899dc 0%, #d387ab 74%);
 }
+.aside h1{
+    text-align: center;
+}
+
+
 
 /* .flexContainerUl{
     display:flex;

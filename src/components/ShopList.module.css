@@ -1,10 +1,10 @@
-.flexContainerUl{
+.gridContainerUl{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     place-items: center;
     
 }
-.flexContainerUl li{
+.gridContainerUl li{
 
     color: rgb(43, 131, 226);
     padding: 20px;
@@ -18,22 +18,26 @@
 	border-radius: 10px;
 	overflow: hidden;
 	margin: 20px;
-	height: 300px;
-	width: 300px;
-
+	height: 250px;
+	width: 250px;
 }
-.flexContainerUl li:first-child img{
+.gridContainerUl  li:first-child img{
     height:auto;
-    width:73px;
-
+    width:60px;
 }
-.flexContainerUl li:nth-child(4) img{
+.gridContainerUl li:nth-child(4) img{
     height:auto;
-    width:90px;
+    width:80px;
 
 }
-.flexContainerUl li:last-child img{
+.gridContainerUl li:nth-child(5) img{
+  height:auto;
+  width:130px;
+
+}
+.gridContainerUl li:last-child img{
     height:auto;
-    width:170px;
+    width:160px;
 
 }
+
